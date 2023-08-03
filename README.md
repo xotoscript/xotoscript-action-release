@@ -3,7 +3,7 @@
 
 This pipeline will bump the version in package.json, create a new tag version, update the changelog and push the commit with --follow-tags! This package uses the same pipeline for versioning.
 
-We have the action which contains the release pipeline that will be shared across all our repos :
+We have the action which contains the release pipeline that will be shared across all repos :
 
 - action.yml
 
