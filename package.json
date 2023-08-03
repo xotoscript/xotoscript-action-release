@@ -1,0 +1,17 @@
+{
+	"name": "@xotoscipt/xotoscript-action-release",
+	"version": "0.0.0",
+	"repository": "git@github.com:xotoscipt/xotoscript-action-release.git",
+	"author": "xotoscipt",
+	"scripts": {
+		"prepare": "husky install"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"husky": ">=8.0.3"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^17.6.6",
+		"@commitlint/config-conventional": "^17.6.6"
+	}
+}

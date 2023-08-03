@@ -1,0 +1,57 @@
+name: ci-release
+description: custom ci release action
+
+inputs:
+  secret_input:
+     description: "Github Secret"
+     required: true
+     default: ''
+  release_as:
+    description: 'Bump version kind'
+    required: true
+    default: 'patch'
+  publish_type:
+    description: 'Publish type'
+    required: false
+    default: 'none'
+  push_to:
+    description: "Push to new branch after releasing"
+    default: 'none'
+  pre_action:
+    description: "Allowed values: checkout, none"
+    default: 'checkout'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repo
+      if: ${{ inputs.pre_action == 'checkout' }}
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        registry-url: 'https://npm.pkg.github.com'
+        node-version: '16'
+    - name: Git authentication
+      shell: bash
+      run: |
+          git config --global user.email "release@release.com"
+          git config --global user.name "Release CI"
+    - name: Bump version, tag and create changelog
+      shell: bash
+      run: npx standard-version --release-as ${{ inputs.release_as }}
+    - name: Push changes
+      shell: bash
+      run: git push --follow-tags
+    - name: Publish version
+      if: ${{ inputs.publish_type == 'library' }}
+      shell: bash
+      run: yarn install --frozen-lockfile && yarn publish --non-interactive
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.secret_input }}
+    - if: ${{ inputs.push_to == 'staging' }}
+      uses: ad-m/github-push-action@master
+      with:
+        branch: staging
