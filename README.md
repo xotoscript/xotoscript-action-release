@@ -1,5 +1,5 @@
 
-## Intro
+## Introduction
 
 This pipeline will bump the version in package.json, create a new tag version, update the changelog and push the commit with --follow-tags! This package uses the same pipeline for versioning.
 
