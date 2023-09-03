@@ -67,7 +67,7 @@ runs:
     - name: Publish version
       if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '3'}}
       shell: bash
-      run: yarn npm publish --non-interactive
+      run: yarn npm publish
       env:
         NODE_AUTH_TOKEN: ${{ inputs.secret_input }}
     - if: ${{ inputs.push_to == 'staging' }}
