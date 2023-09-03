@@ -5,7 +5,6 @@ inputs:
   secret_input:
      description: "Github Secret"
      required: true
-     default: ''
   release_as:
     description: 'Bump version kind'
     required: true
@@ -20,6 +19,9 @@ inputs:
   pre_action:
     description: "Allowed values: checkout, none"
     default: 'checkout'
+  yarn_version:
+    description: "Select yarn version"
+    default: '1'
 
 runs:
   using: "composite"
@@ -45,10 +47,18 @@ runs:
     - name: Push changes
       shell: bash
       run: git push --follow-tags
+    - name: Install dependencies
+      if: ${{ inputs.yarn_version == '1' }}
+      run: yarn install --frozen-lockfile
+      shell: bash
+    - name: Install dependencies
+      if: ${{ inputs.yarn_version == '3' }}
+      run: yarn set version stable && YARN_ENABLE_IMMUTABLE_INSTALLS=false GH_PAT=${{ inputs.secret_input }} yarn install
+      shell: bash
     - name: Publish version
       if: ${{ inputs.publish_type == 'library' }}
       shell: bash
-      run: yarn install --frozen-lockfile && yarn publish --non-interactive
+      run: yarn publish --non-interactive
       env:
         NODE_AUTH_TOKEN: ${{ inputs.secret_input }}
     - if: ${{ inputs.push_to == 'staging' }}
