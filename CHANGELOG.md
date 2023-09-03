@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/xotoscipt/xotoscript-action-release/compare/v0.1.2...v0.1.3) (2023-09-03)
+
+
+### ✨ feature
+
+* gh_pat support ([80bbb18](https://github.com/xotoscipt/xotoscript-action-release/commits80bbb18029f1e5933892cec9393268bba0b1b33e))
+
 ### [0.1.2](https://github.com/xotoscipt/xotoscript-action-release/compare/v0.1.1...v0.1.2) (2023-09-03)
 
 
