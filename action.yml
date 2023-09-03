@@ -69,7 +69,7 @@ runs:
       shell: bash
       run: yarn npm publish
       env:
-        NODE_AUTH_TOKEN: ${{ inputs.secret_input }}
+        GH_PAT: ${{ inputs.secret_input }}
     - if: ${{ inputs.push_to == 'staging' }}
       uses: ad-m/github-push-action@master
       with:
