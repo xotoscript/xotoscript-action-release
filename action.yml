@@ -56,9 +56,15 @@ runs:
       run: yarn set version stable && YARN_ENABLE_IMMUTABLE_INSTALLS=false GH_PAT=${{ inputs.secret_input }} yarn install
       shell: bash
     - name: Publish version
-      if: ${{ inputs.publish_type == 'library' }}
+      if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '1'}}
       shell: bash
       run: yarn publish --non-interactive
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.secret_input }}
+    - name: Publish version
+      if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '3'}}
+      shell: bash
+      run: yarn npm publish --non-interactive
       env:
         NODE_AUTH_TOKEN: ${{ inputs.secret_input }}
     - if: ${{ inputs.push_to == 'staging' }}
