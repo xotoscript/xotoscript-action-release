@@ -35,7 +35,7 @@ runs:
       uses: actions/setup-node@v3
       with:
         registry-url: 'https://npm.pkg.github.com'
-        node-version: '16'
+        node-version: '18'
     - name: Git authentication
       shell: bash
       run: |
