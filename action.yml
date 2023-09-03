@@ -5,6 +5,9 @@ inputs:
   secret_input:
      description: "Github Secret"
      required: true
+  gh_pat:
+    description: "Full accesss auth token"
+    required: false
   release_as:
     description: 'Bump version kind'
     required: true
@@ -53,7 +56,7 @@ runs:
       shell: bash
     - name: Install dependencies
       if: ${{ inputs.yarn_version == '3' }}
-      run: yarn set version stable && YARN_ENABLE_IMMUTABLE_INSTALLS=false GH_PAT=${{ inputs.secret_input }} yarn install
+      run: yarn set version stable && YARN_ENABLE_IMMUTABLE_INSTALLS=false GH_PAT=${{ inputs.gh_pat }} yarn install
       shell: bash
     - name: Publish version
       if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '1'}}
