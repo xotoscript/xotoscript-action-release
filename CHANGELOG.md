@@ -2,33 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.1.18](https://github.com/xotoscipt/xotoscript-action-release/compare/v0.1.17...v0.1.18) (2023-09-05)
-
-
-### 🐛 bug fixes
-
-* path last try ([c60d314](https://github.com/xotoscipt/xotoscript-action-release/commitsc60d314d28ce53404a221d9c6031dd44f0ef5dc8))
-
-### [0.1.17](https://github.com/xotoscipt/xotoscript-action-release/compare/v0.1.16...v0.1.17) (2023-09-05)
-
-
-### 🐛 bug fixes
-
-* path ([219c5e6](https://github.com/xotoscipt/xotoscript-action-release/commits219c5e65e7866d8cc3724e547542b7a58ed6ea90))
-
-### [0.1.16](https://github.com/xotoscipt/xotoscript-action-release/compare/v0.1.15...v0.1.16) (2023-09-05)
-
-
-### 🐛 bug fixes
-
-* introspect ([acf8148](https://github.com/xotoscipt/xotoscript-action-release/commitsacf81484769e5fdee9976f0d5022592fac3b693d))
-
 ### [0.1.15](https://github.com/xotoscipt/xotoscript-action-release/compare/v0.1.14...v0.1.15) (2023-09-05)
 
 
 ### 🐛 bug fixes
 
 * check ls ([57d44b1](https://github.com/xotoscipt/xotoscript-action-release/commits57d44b1fe61c12b9307b54ea9026a8493f86d3ee))
+
 
 ### [0.1.14](https://github.com/xotoscipt/xotoscript-action-release/compare/v0.1.13...v0.1.14) (2023-09-05)
 
