@@ -56,7 +56,7 @@ runs:
         repository: xotoscript/xotoscript-action-release
         path: ./temp/xotoscript-action-release
     - name: Check dir
-      run: ls temp/xotoscript-action-release
+      run: cat ./temp/xotoscript-action-release/.github/actions/action-yarn1/action.yml
       shell: bash
     - if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '1'}}
       name: Publish package
