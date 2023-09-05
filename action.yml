@@ -50,17 +50,26 @@ runs:
     - name: Push changes
       shell: bash
       run: git push --follow-tags
-    - if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '1'}}
-      name: Publish package
-      uses: /.github/actions/action-yarn1/action.yml
-      with:
-        secret_input: ${{ inputs.secret_input }}
-    - if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '3'}}
-      name: Publish package
-      uses: /.github/actions/action-yarn3/action.yml
-      with:
-        secret_input: ${{ inputs.secret_input }}
-        gh_pat: ${{ inputs.gh_pat }}
+    - name: Install dependencies
+      if: ${{ inputs.yarn_version == '1' }}
+      run: yarn install --frozen-lockfile
+      shell: bash
+    - name: Install dependencies
+      if: ${{ inputs.yarn_version == '3' }}
+      run: yarn set version stable && YARN_ENABLE_IMMUTABLE_INSTALLS=false GH_PAT=${{ inputs.gh_pat }} yarn install
+      shell: bash
+    - name: Publish version
+      if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '1'}}
+      shell: bash
+      run: yarn publish --non-interactive
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.secret_input }}
+    - name: Publish version
+      if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '3'}}
+      shell: bash
+      run: yarn npm publish
+      env:
+        GH_PAT: ${{ inputs.secret_input }}
     - if: ${{ inputs.push_to == 'staging' }}
       uses: ad-m/github-push-action@master
       with:
