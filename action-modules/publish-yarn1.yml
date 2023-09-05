@@ -1,0 +1,19 @@
+name: ci-publish-yarn1
+description: custom ci release action yarn1
+
+inputs:
+  secret_input:
+     description: "Github Secret"
+     required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+      shell: bash
+    - name: Publish version
+      shell: bash
+      run: yarn publish --non-interactive
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.secret_input }}

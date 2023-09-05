@@ -1,0 +1,22 @@
+name: ci-publish-yarn3
+description: custom ci release action
+
+inputs:
+  secret_input:
+     description: "Github Secret"
+     required: true
+  gh_pat:
+    description: "Full accesss auth token"
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install dependencies
+      run: yarn set version stable && YARN_ENABLE_IMMUTABLE_INSTALLS=false GH_PAT=${{ inputs.gh_pat }} yarn install
+      shell: bash
+    - name: Publish version
+      shell: bash
+      run: yarn npm publish
+      env:
+        GH_PAT: ${{ inputs.secret_input }}
