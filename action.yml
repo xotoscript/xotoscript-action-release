@@ -55,6 +55,9 @@ runs:
       with:
         repository: xotoscript/xotoscript-action-release
         path: ./temp/xotoscript-action-release
+    - name: Check dir
+      run: ls
+      shell: bash
     - if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '1'}}
       name: Publish package
       uses: ./temp/xotoscript-action-release/.github/actions/action-yarn1/action.yml
