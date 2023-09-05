@@ -52,12 +52,12 @@ runs:
       run: git push --follow-tags
     - if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '1'}}
       name: Publish package
-      uses: ./action-modules/publish-yarn1.yml
+      uses: ./action-modules/yarn1/action.yml
       with:
         secret_input: ${{ inputs.secret_input }}
     - if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '3'}}
       name: Publish package
-      uses: ./action-modules/publish-yarn3.yml
+      uses: ./action-modules/yarn3/action.yml
       with:
         secret_input: ${{ inputs.secret_input }}
         gh_pat: ${{ inputs.gh_pat }}
