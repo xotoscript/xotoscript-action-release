@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.17](https://github.com/xotoscipt/xotoscript-action-release/compare/v0.1.16...v0.1.17) (2023-09-05)
+
+
+### 🐛 bug fixes
+
+* path ([219c5e6](https://github.com/xotoscipt/xotoscript-action-release/commits219c5e65e7866d8cc3724e547542b7a58ed6ea90))
+
 ### [0.1.16](https://github.com/xotoscipt/xotoscript-action-release/compare/v0.1.15...v0.1.16) (2023-09-05)
 
 
