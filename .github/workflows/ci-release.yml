@@ -38,4 +38,3 @@ jobs:
         uses: ./
         with:
           release_as: ${{ inputs.release_as }}
-          publish_type: 'library'
