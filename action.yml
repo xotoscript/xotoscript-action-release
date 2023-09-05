@@ -25,6 +25,9 @@ inputs:
   yarn_version:
     description: "Select yarn version"
     default: '1'
+  should_build:
+    description: "run yarn build automatically to generate dist"
+    default: 'false'
 
 runs:
   using: "composite"
@@ -58,6 +61,10 @@ runs:
       if: ${{ inputs.yarn_version == '3' }}
       run: yarn set version stable && YARN_ENABLE_IMMUTABLE_INSTALLS=false GH_PAT=${{ inputs.gh_pat }} yarn install
       shell: bash
+    - name: Build dependencies
+      if: ${{ inputs.should_build == 'true' }}
+      shell: bash
+      run: yarn build
     - name: Publish version
       if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '1'}}
       shell: bash
