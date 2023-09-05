@@ -1,6 +1,6 @@
 {
 	"name": "@xotoscipt/xotoscript-action-release",
-	"version": "0.1.12",
+	"version": "0.1.13",
 	"repository": "git@github.com:xotoscipt/xotoscript-action-release.git",
 	"author": "xotoscipt",
 	"scripts": {
