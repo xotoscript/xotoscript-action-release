@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/xotoscipt/xotoscript-action-release/compare/v0.1.5...v0.1.6) (2023-09-05)
+
+
+### ✨ feature
+
+* split config into multiple files ([c47377b](https://github.com/xotoscipt/xotoscript-action-release/commitsc47377b4b928bee04ee29c48bb998c8d1de74789))
+
 ### [0.1.5](https://github.com/xotoscipt/xotoscript-action-release/compare/v0.1.4...v0.1.5) (2023-09-03)
 
 
