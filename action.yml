@@ -57,12 +57,12 @@ runs:
     #     path: ./.github/xotoscript-action-release
     - if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '1'}}
       name: Publish package
-      uses: xotoscript/xotoscript-action-release/.github/actions/action.yml@0.1.10
+      uses: xotoscript/xotoscript-action-release/.github/actions/action.yml@v0.1.10
       with:
         secret_input: ${{ inputs.secret_input }}
     - if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '3'}}
       name: Publish package
-      uses: xotoscript/xotoscript-action-release/.github/actions/action.yml@0.1.10
+      uses: xotoscript/xotoscript-action-release/.github/actions/action.yml@v0.1.10
       with:
         secret_input: ${{ inputs.secret_input }}
         gh_pat: ${{ inputs.gh_pat }}
