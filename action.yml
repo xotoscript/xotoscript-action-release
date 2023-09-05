@@ -50,19 +50,19 @@ runs:
     - name: Push changes
       shell: bash
       run: git push --follow-tags
-    - name: checkout root repo
-      uses: actions/checkout@v3.1.0
-      with:
-        repository: xotoscript/xotoscript-action-release
-        path: ./.github/xotoscript-action-release
+    # - name: checkout root repo
+    #   uses: actions/checkout@v3.1.0
+    #   with:
+    #     repository: xotoscript/xotoscript-action-release
+    #     path: ./.github/xotoscript-action-release
     - if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '1'}}
       name: Publish package
-      uses: ./.github/xotoscript-action-release/.github/actions/action-yarn1.yml
+      uses: xotoscript/xotoscript-action-release/.github/actions/action.yml
       with:
         secret_input: ${{ inputs.secret_input }}
     - if: ${{ inputs.publish_type == 'library' &&  inputs.yarn_version == '3'}}
       name: Publish package
-      uses: ./.github/xotoscript-action-release/.github/actions/action-yarn3.yml
+      uses: xotoscript/xotoscript-action-release/.github/actions/action.yml
       with:
         secret_input: ${{ inputs.secret_input }}
         gh_pat: ${{ inputs.gh_pat }}
