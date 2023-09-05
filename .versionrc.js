@@ -22,4 +22,5 @@ const versionConfig = {
     { type: "test", hidden: false, section: "✅ testing" },
   ],
 };
+
 module.exports = versionConfig;

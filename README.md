@@ -1,16 +1,16 @@
 
-## Introduction
+## introduction
 
 This pipeline will bump the version in package.json, create a new tag version, update the changelog and push the commit with --follow-tags! This package uses the same pipeline for versioning.
 
-## Parameters
+## parameters
 
 - release_as : for patch, minor, major
 - push_to : to support pushing on a specific branch (release, development, etc)
 - publish_type : to describe what type of publishing type it is (library vs service, etc)
 - pre_action : lets you choose actions before starting the script
 
-## Usage Example
+## usage example
 
 you can implement this custom action in your service by adding :
 
