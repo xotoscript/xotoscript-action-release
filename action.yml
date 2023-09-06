@@ -58,9 +58,6 @@ runs:
     - name: Bump version, tag and create changelog
       shell: bash
       run: npx standard-version --release-as ${{ inputs.release_as }}
-    - name: Remove temp files
-      shell: bash
-      run: rm yarn.lock
     - name: Push changes
       shell: bash
       run: git push --follow-tags
