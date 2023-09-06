@@ -47,12 +47,6 @@ runs:
       run: |
           git config --global user.email "release@release.com"
           git config --global user.name "Release CI"
-    - name: Bump version, tag and create changelog
-      shell: bash
-      run: npx standard-version --release-as ${{ inputs.release_as }}
-    - name: Push changes
-      shell: bash
-      run: git push --follow-tags
     - name: Install dependencies
       if: ${{ inputs.yarn_version == '1' }}
       run: yarn install --frozen-lockfile
@@ -61,6 +55,15 @@ runs:
       if: ${{ inputs.yarn_version == '3' }}
       run: yarn set version stable && YARN_ENABLE_IMMUTABLE_INSTALLS=false GH_PAT=${{ inputs.gh_pat }} yarn install
       shell: bash
+    - name: Bump version, tag and create changelog
+      shell: bash
+      run: npx standard-version --release-as ${{ inputs.release_as }}
+    - name: Remove temp files
+      shell: bash
+      run: rm yarn.lock
+    - name: Push changes
+      shell: bash
+      run: git push --follow-tags
     - name: Build dependencies
       if: ${{ inputs.should_build == 'true' }}
       shell: bash
